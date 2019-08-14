@@ -49,3 +49,5 @@ to go to the List Page, use extension 'team/' (http://127.0.0.1:8000/team/)
 clicking on any of the team members on the List Page will redirect you to the Edit Page
 
 clicking on the "+" button on the top right of the List Page will redirect to the Add Page
+
+# Enjoy!! :)
