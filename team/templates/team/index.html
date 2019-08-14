@@ -1,0 +1,36 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}">
+
+{% if team_member_list %}
+    <a href = "{% url 'team:add' %}" class = "addButton" style = "text-decoration:none">+</a>
+    <h1 align = "left"><strong><br>Team members</strong></h1>
+    <h3 align = "left" style = "color:gray">You have {{team_member_list.count}} team members.</h3>
+    {% for member in team_member_list %}
+      {% if member.admin_status %}
+        <p>
+          <a href = "{% url 'team:edit' member.id %}">
+            <button>
+              <strong><div align = "left">{{member.first_name}} {{member.last_name}} (admin)</div></strong><br>
+              <div align = "left" style = "color:gray">{{member.phone_number}}</div><br>
+              <div align = "left" style = "color:gray">{{member.email}}</div>
+            </button>
+          </a>
+        </p>
+      {% else %}
+        <p>
+          <a href = "{% url 'team:edit' member.id %}">
+            <button>
+              <strong><div align = "left">{{member.first_name}} {{member.last_name}}</div></strong><br>
+              <div align = "left" style = "color:gray">{{member.phone_number}}</div><br>
+              <div align = "left" style = "color:gray">{{member.email}}</div>
+            </button>
+          </a>
+        </p>
+
+      {% endif %}
+
+    {% endfor %}
+{% else %}
+    <p>No Team Members exist.</p>
+{% endif %}

@@ -1,0 +1,118 @@
+button {
+  background-color: Transparent;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 300px;
+  padding-right: 600px;
+  font-size: 25;
+  font-family: georgia;
+  background: white url("images/user_icon.jpeg") no-repeat;
+  background-size: 10%;
+  background-position: 50px 30px;
+
+
+}
+
+h1 {
+  font-family: georgia;
+  font-size: 40;
+  padding-left: 50px;
+
+}
+
+h3 {
+  font-family: georgia;
+  padding-left: 50px;
+}
+
+
+.addButton {
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    /* display: block;
+    float: right; */
+    background-color: White;
+    color: lightblue;
+    text-align: center;
+    font-size: 100;
+}
+
+body {
+
+}
+
+form {
+  font-family: georgia;
+  padding-left:50px;
+  font-size: 20;
+}
+
+h4 {
+  font-family: georgia;
+  font-size: 25;
+  margin-top: 20;
+  margin-bottom: 20;
+}
+
+.regularRadio {
+  margin-left: 200px;
+  align: right;
+}
+
+
+
+.adminRadio {
+  margin-left: 221px;
+  align: right;
+
+}
+
+input[type="text"] {
+  height: 40px;
+  width: 500px;
+  font-size: 18;
+  font-family: georgia;
+  border-radius: 5px;
+  border-color: gray;
+  margin-top: 10px;
+}
+
+.delete {
+  height: 50px;
+  width: 110px;
+  font-size: 18;
+  font-family: georgia;
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+  border-color: gray;
+  margin-top: -70px;
+
+}
+
+.submit {
+  height: 50px;
+  width: 110px;
+  font-size: 18;
+  font-family: georgia;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border-color: white;
+  margin-left: 391px;
+
+}
+
+.error {
+  padding-left: 50px;
+  font-size: 25;
+  font-family: georgia;
+  margin-top: -15px;
+}

@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}">
+
+<h1>Add Team member</h1>
+<h3 align = "left" style = "color:gray">Set email, location and role</h3>
+<hr>
+<form action="{% url 'team:addEdit' %}" method = "post">
+  {% csrf_token %}
+  <h4>Info</h4>
+
+  First name:<br>
+  <input type="text" name="first_name"><br>
+  <br>
+
+  Last name:<br>
+  <input type="text" name="last_name"><br>
+  <br>
+
+  Email:<br>
+  <input type="text" name="email"><br>
+  <br>
+
+  Phone Number:<br>
+  <input type="text" name="phone_number"><br>
+
+  <h4>Role</h4>
+
+
+  <label for = "1">Regular - Can't delete members</label>
+  <input type="radio" class = "regularRadio" name="admin_status" id="1" value="1">
+  <br>
+  <hr width = "50%" align = "left">
+
+  <label for = "2">Admin - Can delete members</label>
+    <input type="radio" class = "adminRadio" name="admin_status" id="2" value="2">
+  <br>
+  <hr width = "50%" align = "left">
+  <input type="submit" class = "submit" value = "Save">
+
+
+</form>
+{% if error_message %}<p class = "error"><strong>{{ error_message }}</strong></p>{% endif %}

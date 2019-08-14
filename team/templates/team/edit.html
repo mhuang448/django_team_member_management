@@ -1,0 +1,65 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}">
+
+<h1>Edit Team member</h1>
+
+<h3 align = "left" style = "color:gray">Edit contact info, location and role</h3>
+<hr>
+<form action="{% url 'team:memberEdit' member.id %}" method = "post">
+  {% csrf_token %}
+  <h4>Info</h4>
+
+  First name:<br>
+  <input type="text" name="first_name" value = "{{ member.first_name }}"><br>
+  <br>
+
+  Last name:<br>
+  <input type="text" name="last_name" value = "{{ member.last_name }}"><br>
+  <br>
+
+  Email:<br>
+  <input type="text" name="email" value = "{{ member.email }}"><br>
+  <br>
+
+  Phone Number:<br>
+  <input type="text" name="phone_number" value = "{{ member.phone_number }}"><br>
+
+  <h4>Role</h4>
+
+  {% if member.admin_status %}
+
+    <label for = "1">Regular - Can't delete members</label>
+    <input type="radio" class = "regularRadio" name="admin_status" id="1" value="1">
+    <br>
+    <hr width = "50%" align = "left">
+
+
+    <label for = "2">Admin - Can delete members</label>
+    <input type="radio" class = "adminRadio" name="admin_status" id="2" value="2" checked = "checked">
+    <br>
+    <hr width = "50%" align = "left">
+
+  {% else %}
+  <label for = "1">Regular - Can't delete members</label>
+  <input type="radio" class = "regularRadio" name="admin_status" id="1" value="1" checked = "checked">
+  <br>
+  <hr width = "50%" align = "left">
+
+  <label for = "2">Admin - Can delete members</label>
+  <input type="radio" class = "adminRadio" name="admin_status" id="2" value="2">
+  <br>
+  <hr  align = "left">
+
+  {% endif %}
+
+  <input type="submit" class = "submit" value = "Save">
+
+</form>
+
+<form action="{% url 'team:delete' member.id %}" method = "post">
+  {% csrf_token %}
+  <input type="submit" class = "delete" value = "Delete">
+</form>
+
+{% if error_message %}<p class = "error"><strong>{{ error_message }}</strong></p>{% endif %}
