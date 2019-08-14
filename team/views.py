@@ -24,7 +24,6 @@ def add(request):
 
 #actually handles the data inputted in the form in the add viewpage
 def addEdit(request):
-    try:
         member = TeamMember()
         member.first_name = request.POST['first_name']
         member.last_name = request.POST['last_name']
@@ -34,11 +33,6 @@ def addEdit(request):
             member.admin_status = False
         else:
             member.admin_status = True
-    except(KeyError):
-        return render(request, 'team/add.html', {
-        'error_message': "You didn't select a role.",
-        })
-    else:
         member.save()
         return HttpResponseRedirect(reverse('team:index'))
 
@@ -50,23 +44,16 @@ class EditView(generic.DetailView):
 #actually handles the data inputted in the form in the member edit page
 def memberEdit(request, member_id):
     member = get_object_or_404(TeamMember, pk=member_id)
-    try:
-        member.first_name = request.POST['first_name']
-        member.last_name = request.POST['last_name']
-        member.email = request.POST['email']
-        member.phone_number = request.POST['phone_number']
-        if request.POST['admin_status'] == '1':
-            member.admin_status = False
-        else:
-            member.admin_status = True
-    except(KeyError):
-        return render(request, 'team/edit.html', {
-        'member': member,
-        'error_message': "You didn't select a role.",
-        })
+    member.first_name = request.POST['first_name']
+    member.last_name = request.POST['last_name']
+    member.email = request.POST['email']
+    member.phone_number = request.POST['phone_number']
+    if request.POST['admin_status'] == '1':
+        member.admin_status = False
     else:
-        member.save()
-        return HttpResponseRedirect(reverse('team:index'))
+        member.admin_status = True
+    member.save()
+    return HttpResponseRedirect(reverse('team:index'))
 
 def delete(request, member_id):
     member = get_object_or_404(TeamMember, pk=member_id)

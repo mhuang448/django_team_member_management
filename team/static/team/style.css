@@ -110,9 +110,6 @@ input[type="text"] {
 
 }
 
-.error {
-  padding-left: 50px;
-  font-size: 25;
-  font-family: georgia;
-  margin-top: -15px;
+.roleUnderline {
+  width: 500px;
 }

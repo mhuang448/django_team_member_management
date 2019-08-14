@@ -28,16 +28,15 @@
 
 
   <label for = "1">Regular - Can't delete members</label>
-  <input type="radio" class = "regularRadio" name="admin_status" id="1" value="1">
+  <input type="radio" class = "regularRadio" name="admin_status" id="1" value="1" checked = "checked">
   <br>
-  <hr width = "50%" align = "left">
+  <hr class = "roleUnderline" align = "left">
 
   <label for = "2">Admin - Can delete members</label>
     <input type="radio" class = "adminRadio" name="admin_status" id="2" value="2">
   <br>
-  <hr width = "50%" align = "left">
+  <hr class = "roleUnderline" align = "left">
   <input type="submit" class = "submit" value = "Save">
 
 
 </form>
-{% if error_message %}<p class = "error"><strong>{{ error_message }}</strong></p>{% endif %}
